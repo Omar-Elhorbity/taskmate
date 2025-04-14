@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Login - Taskmate</title>
+{% endblock title %} 
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+{% endif %}
+  <h1>Login</h1>
+  <form method="post" class="col-6">
+    {{ form|crispy}}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary mb-5">Login</button>
+  </form>
+{% endblock content %}

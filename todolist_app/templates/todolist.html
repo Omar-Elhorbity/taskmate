@@ -1,0 +1,94 @@
+{% extends "base.html" %} 
+
+{% block title %}
+<title>Todo List Manager - Taskmate</title>
+{% endblock title %} 
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<form method="post" class="d-flex">
+    {% csrf_token %}
+    <div class="w-75 me-2">
+        <label for="task" class="visually-hidden">Task</label>
+        <input type="text" class="form-control" id="task" name="task" required placeholder="New Task?">
+    </div>
+    <div class="w-25">
+        <button type="submit" class="btn btn-primary w-100">Add Task</button>
+    </div>
+</form>
+<table class="table table-bordered" style="margin-top:30px">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>Task</th>
+            <th>Done</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+            <tr {% if task.done %}class="table-success"{% endif %}>
+                <td>
+                    {% if task.done %}
+                        <del>{{ task.task }}</del>
+                    {% else %}
+                        {{ task.task }}
+                    {% endif %}
+                </td>
+                <td>{% if task.done %}Yes{% else %}No{% endif %}</td>
+                <td><a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a></td>
+                <td><a href="{% url 'delete_task' task.id %}" class="btn btn-danger">Delete</a></td>
+                <td>
+                    <form method="post" action="{% url 'toggle_task' task.id %}">
+                        {% csrf_token %}
+                        {% if task.done %}
+                            <button type="submit" class="btn btn-success">Mark as Not Done</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-primary">Mark as Done</button>
+                        {% endif %}
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="d-flex justify-content-between mt-3">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if tasks.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ tasks.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% for i in tasks.paginator.page_range %}
+                {% if i == tasks.number %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if tasks.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ tasks.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock content %}

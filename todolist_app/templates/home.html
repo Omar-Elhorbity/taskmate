@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Home - TaskMate</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="d-flex justify-content-center mt-5">
+        <div class="card shadow-lg" style="width: 50rem;">
+            <div class="card-body text-center">
+                <h5 class="card-title display-4 mb-3">Welcome to TaskMate</h5>
+                <p class="card-text lead mb-4">Effortlessly manage your tasks and boost your productivity with our intuitive application.</p>
+                <a href="{% url 'todolist' %}" class="btn btn-primary btn-lg mb-3">Go to Todo List</a>
+                
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
