@@ -30,7 +30,11 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='django-insecure-default-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+=======
+ALLOWED_HOSTS = ['*']
+>>>>>>> ea480f7 (updated allowed hosts)
 
 
 # Application definition
