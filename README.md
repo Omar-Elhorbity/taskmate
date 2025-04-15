@@ -48,6 +48,28 @@ Features
 * Login and logout system
 * User authentication and authorization
 
+## Screenshots
+
+### Home Page
+
+![image-20250415075431770](/home/omar/.config/Typora/typora-user-images/image-20250415075431770.png)
+
+### Registration Page
+
+![image-20250415075513794](/home/omar/.config/Typora/typora-user-images/image-20250415075513794.png)
+
+### Login Page
+
+![image-20250415075529270](/home/omar/.config/Typora/typora-user-images/image-20250415075529270.png)
+
+### Todo Page
+
+![image-20250415075552241](/home/omar/.config/Typora/typora-user-images/image-20250415075552241.png)
+
+### Edit Task
+
+![image-20250415075632446](/home/omar/.config/Typora/typora-user-images/image-20250415075632446.png)
+
 License
 -------
 
