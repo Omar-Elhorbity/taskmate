@@ -52,7 +52,7 @@ Features
 
 ### Home Page
 
-![image-20250415075431770](/home/omar/.config/Typora/typora-user-images/image-20250415075431770.png)
+![Screenshot from 2025-04-15 07-54-03](https://github.com/user-attachments/assets/2c3ab70d-8107-407a-8e5a-bd7641704248)
 
 ### Registration Page
 
