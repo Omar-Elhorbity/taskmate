@@ -56,19 +56,19 @@ Features
 
 ### Registration Page
 
-![image-20250415075513794](/home/omar/.config/Typora/typora-user-images/image-20250415075513794.png)
+![Screenshot from 2025-04-15 07-54-57](https://github.com/user-attachments/assets/ea4622ee-dba5-4539-94a7-e5e03ecb0e65)
 
 ### Login Page
 
-![image-20250415075529270](/home/omar/.config/Typora/typora-user-images/image-20250415075529270.png)
+![Screenshot from 2025-04-15 07-55-21](https://github.com/user-attachments/assets/46ba00cc-d439-4e00-b3ef-21860615535f)
 
 ### Todo Page
 
-![image-20250415075552241](/home/omar/.config/Typora/typora-user-images/image-20250415075552241.png)
+![Screenshot from 2025-04-15 07-55-42](https://github.com/user-attachments/assets/886d17d6-8753-4b16-9611-5ecde9ef6c08)
 
 ### Edit Task
 
-![image-20250415075632446](/home/omar/.config/Typora/typora-user-images/image-20250415075632446.png)
+![Screenshot from 2025-04-15 07-56-24](https://github.com/user-attachments/assets/04b8e0e7-2247-471f-8ea8-9c4b2f0cd020)
 
 License
 -------
