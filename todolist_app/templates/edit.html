@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-{% if request.user == task.manager %}
+{% if request.user == task_obj.manager %}
     <form method="post" class="mt-3">
         {% csrf_token %}
         {{ form.as_p }}
