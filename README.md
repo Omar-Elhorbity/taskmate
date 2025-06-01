@@ -45,6 +45,8 @@ Features
 
 * Task creation, editing, and deletion
 * Task completion tracking
+* Task priority levels (High, Medium, Low)
+* Due dates for tasks
 * Login and logout system
 * User authentication and authorization
 
