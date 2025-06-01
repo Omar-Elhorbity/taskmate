@@ -13,13 +13,24 @@
         </div>
     {% endfor %}
 {% endif %}
-<form method="post" class="d-flex">
+<form method="post" class="row g-2 align-items-end mb-4">
     {% csrf_token %}
-    <div class="w-75 me-2">
-        <label for="task" class="visually-hidden">Task</label>
-        <input type="text" class="form-control" id="task" name="task" required placeholder="New Task?">
+    <div class="col-md-5">
+        <label for="{{ form.task.id_for_label }}" class="visually-hidden">New Task?</label>
+        {{ form.task }}
+        {{ form.task.errors }}
     </div>
-    <div class="w-25">
+    <div class="col-md-2">
+        <label for="{{ form.priority.id_for_label }}" class="visually-hidden">Priority</label>
+        {{ form.priority }}
+        {{ form.priority.errors }}
+    </div>
+    <div class="col-md-3">
+        <label for="{{ form.due_date.id_for_label }}" class="visually-hidden">Due Date</label>
+        {{ form.due_date }}
+        {{ form.due_date.errors }}
+    </div>
+    <div class="col-md-2">
         <button type="submit" class="btn btn-primary w-100">Add Task</button>
     </div>
 </form>
@@ -27,6 +38,8 @@
     <thead class="bg-dark text-white">
         <tr>
             <th>Task</th>
+            <th>Priority</th>
+            <th>Due Date</th>
             <th>Done</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -43,6 +56,8 @@
                         {{ task.task }}
                     {% endif %}
                 </td>
+                <td>{{ task.priority }}</td>
+                <td>{{ task.due_date|default:"N/A" }}</td>
                 <td>{% if task.done %}Yes{% else %}No{% endif %}</td>
                 <td><a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a></td>
                 <td><a href="{% url 'delete_task' task.id %}" class="btn btn-danger">Delete</a></td>
