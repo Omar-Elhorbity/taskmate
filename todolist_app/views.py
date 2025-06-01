@@ -18,11 +18,12 @@ def todolist(request):
             messages.success(request, "Task added successfully")
         return redirect('todolist')
     else:
+        form = TaskForm() # Added for GET request
         all_tasks = TaskList.objects.filter(manager=request.user)
         paginator = Paginator(all_tasks, 5)
         page_number = request.GET.get('page')
         tasks_page = paginator.get_page(page_number)
-        return render(request, 'todolist.html', {'tasks': tasks_page, 'paginator': paginator})
+        return render(request, 'todolist.html', {'form': form, 'tasks': tasks_page, 'paginator': paginator})
 
 def contact(request):
     context = {
@@ -54,7 +55,8 @@ def edit_task(request, task_id):
             messages.success(request, "Task updated successfully")
         return redirect('todolist') 
     else:
-        return render(request, 'edit.html', {'task': task})
+        form = TaskForm(instance=task) # Changed to pass form instance
+        return render(request, 'edit.html', {'form': form, 'task_obj': task}) # Pass form and task_obj
 @login_required
 def toggle_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
